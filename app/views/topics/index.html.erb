@@ -1,0 +1,44 @@
+<h1><%= t("helpers.index",:model=>t('activerecord.models.topic'))%></h1>
+
+<table>
+  <tr>
+    <th><%= t("activerecord.attributes.topic.title")%></th>
+    <th><%= t("activerecord.attributes.topic.content")%></th>
+    <th><%= t("activerecord.attributes.topic.price")%></th>
+    <th><%= t("activerecord.attributes.topic.place")%></th>
+    <th><%= t("activerecord.attributes.topic.latlng")%></th>
+    <th><%= t("activerecord.attributes.topic.photo_id")%></th>
+    <th><%= t("activerecord.attributes.topic.comments_count")%></th>
+    <th><%= t("activerecord.attributes.topic.flags_count")%></th>
+    <th><%= t("activerecord.attributes.topic.cheers_count")%></th>
+    <th><%= t("activerecord.attributes.topic.cached_tag_list")%></th>
+    <th><%= t("activerecord.attributes.topic.user_id")%></th>
+    <th><%= t("helpers.operating")%></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.title %></td>
+    <td><%= topic.content %></td>
+    <td><%= topic.price %></td>
+    <td><%= topic.place %></td>
+    <td><%= topic.latlng %></td>
+    <td><%= topic.photo_id %></td>
+    <td><%= topic.comments_count %></td>
+    <td><%= topic.flags_count %></td>
+    <td><%= topic.cheers_count %></td>
+    <td><%= topic.cached_tag_list %></td>
+    <td><%= topic.user_id %></td>
+    <td>
+    <%= link_to t("helpers.show",:model=>""), topic %>
+    <%= link_to t("helpers.edit",:model=>""), edit_topic_path(topic) %>
+    <%= link_to t("helpers.destroy",:model=>""), topic, confirm: t("helpers.destroy_info",:model=>""), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t("helpers.new",:model=>t('activerecord.models.topic')), new_topic_path %>

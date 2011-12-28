@@ -1,0 +1,33 @@
+/**
+=ERRORS ***************************
+**/
+#errorExplanation {
+    width: 724px;
+    border: 1px solid #c00;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    background-color: #f0f0f0;
+}
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    margin: -7px;
+    font-size: 11px;
+    background: #c00 url('/images/error_bg.gif') repeat left top;
+    color: #fff;
+    padding: 5px 0.5em 5px 0.5em;
+    text-shadow: #820000 2px 2px 1px;
+}
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 2px 0 5px 0;
+}
+#errorExplanation ul {
+    margin: 5;
+}
+#errorExplanation ul li {
+    font-size: 11px;
+    list-style: square;
+}

@@ -1,0 +1,38 @@
+﻿<h1>用户授权</h1>
+
+<%= error_messages_for :user %>
+
+<p>
+  <b>名称:</b>
+  <%=h @user.name %>
+</p>
+
+<p>
+  <b>代码:</b>
+  <%=h @user.login %>
+</p>
+
+<p>
+  <b>用户类型:</b>
+    <% role=@user.roles.find(:first) %>    
+    <%=h role.name if role %>
+</p>
+
+<p>
+  <b>说明:</b>
+  <%=h @user.note %>
+</p>
+
+<% if role %>
+<% form_for :user, :url=>authenticated_account_path(@user) do |f| -%>  
+    <%=render :partial=>'edit_operate', :locals=>{ :f=>f }  %> 
+  <br style="clear:all"/>
+  <br/>
+  <p><%= submit_tag '确定' %></p>
+<% end -%>
+<% else %>
+  <p>
+   请先设置用户的用户类型
+</p>
+<% end %>
+<%= link_to '返回', account_path %>

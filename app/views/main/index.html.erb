@@ -1,0 +1,23 @@
+<%= javascript_include_tag "main" %>
+
+<%= link_to "发布购物分享",{ :controller => "topics",:action=>"new" } %>
+
+<div class="TopicLoad">
+  <a href="###" id="getNewInfo">获取最新</a>
+  <input type="checkbox" id="topic_load">30秒刷新
+  <ul id="blogInfo" class="TopicUl">
+  <% @topics.each do |topic|%>
+    <li role="topic_<%=topic.id%>" topic_id="<%=topic.id%>">
+      <div class="TopicUImg">
+        <a href="<%= url_for(:controller=>:users,:action=>:info,:id=>topic.user_id)%>">
+            <img alt="" src="/assets/head.jpg">
+        </a>
+    </div>
+    <div></div>
+    <%= raw topic.title %>
+    </li>
+  <% end%>
+  </ul>
+  <a href="###" id="getLastInfo">查看更多</a>
+  </div>
+

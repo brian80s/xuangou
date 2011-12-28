@@ -1,0 +1,27 @@
+﻿<div id="colcontrol">
+<div class=bubble_bg><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr><div class=bubble id=bub>
+  <!-- 表头工具条 -->
+  <div style="margin-bottom: 8px;">
+    <div style="float:left; margin-left:1em">
+    <%= expand_tree %> | <%= collapse_tree %>
+    </div>
+    <div style="float:right; margin-left:2em">
+    <b></b><b></b>
+    </div>
+    <div class=pagination></div> &nbsp;&nbsp;
+  </div> <!-- 表头工具条 -->
+    <% ids = @user.operates.collect {|o| o.id }%>
+    <% all_ids = @user.roles[0].operates.collect {|o| o.id }  %>
+    <%= tree_view( "user[operates][]", Operate.find(1), ids, all_ids )%>
+
+   <!-- 表尾工具条 -->
+  <div class=pagination></div>
+  <div style="margin-top: 1px; font-size: small"></div>
+  <!-- 表尾工具条 -->
+
+</div></div></div></div></div></div>
+</div>
+
+
+
+

@@ -1,0 +1,46 @@
+﻿<h1>用户信息</h1>
+
+<%= error_messages_for :user %>
+
+<p><b>编号：</b><%= @user.login %></p>
+
+<p><b>名称：</b><%= @user.name %></p>
+
+<p><b>所属机构：</b><%= @user.dept.name if @user.dept%>
+
+<% role=@user.roles.find(:first) %>
+
+<p><b>用户类型：</b><%= role.name if role %>
+  
+  <p><b>身份证号码：</b><%= @user.id_card %></p>
+  
+  <p><b>电子邮件：</b><%= @user.email %></p>
+  
+  <p><b>是否锁定：</b><%= @user.locked ? "是" : "否" %></p>
+  
+  <p><b>说明：</b><%= @user.note %></p>
+  
+  <% if @user.id==current_user.id %>
+    <div id="reset-password">
+      <p>(<%= link_to_function(h('更改密码'), "toggleDisplay('password_fields','reset-password');setDefaultPassword('')") %>)  </p>
+    </div>
+  
+    <div id="password_fields" style="display:none">
+    <% form_for(:user,:url=> setting_update_account_path(@user), :html => { :method => :put }) do |f| %>
+      <p><%= link_to_function(h('取消'), "toggleDisplay('password_fields','reset-password');setDefaultPassword(#{Site::Config[:init_password] });") %></p>
+      <p><b>密码</b><br/>
+      <%= f.password_field :password,:id=>:password %></p>
+  
+      <p><b>确认密码</b><br/>
+      <%= f.password_field :password_confirmation,:id=>:password_confirmation  %></p>
+      <input type="hidden" name='role' value=<%= role.id %> />
+      <p><%= submit_tag '确定' %></p>
+
+
+  <% end -%>
+  </div>
+<% end %>
+
+<%=render :partial=>'edit_operate'  %> 
+
+<%= link_to '返回',account_path %>

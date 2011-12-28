@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LinkHome</title>
+    <%= stylesheet_link_tag  "application","main","styles" %>
+    <%= javascript_include_tag "application"%>
+    <%= csrf_meta_tags %>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <%#= stylesheet_link_tag "styles" %>
+    <%#*, :cache => true%>
+    
+    <script type="text/javascript">
+      function clearText(field)
+      {
+        if (field.defaultValue == field.value) field.value = '';
+        else if (field.value == '') field.value = field.defaultValue;
+      }
+    </script>
+    <%= javascript_include_tag "jquery.min"%>
+    <%= javascript_include_tag "jcarousellite_1.0.1"%>
+    <%= javascript_include_tag "mousewheel"%>
+    <%= javascript_include_tag "easing.1.1"%>
+    <script type="text/javascript">
+      $(function() {
+        $(".anyClass").jCarouselLite({
+          btnNext: ".SlideItMoo_back",
+          btnPrev: ".SlideItMoo_forward",
+          easing: "bounceout",
+          auto: 800,
+          speed: 3000,
+          visible: 7
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <div id="templatemo_menu_wrapper">
+      
+      <div id="templatemo_menu">
+        <ul>
+          
+      <% if @main_menus%>
+                <% @main_menus.each do |menu|%>
+              <li><a href="<%=url_for(:controller=>menu.controller,:action=>menu.action)%>" class="<%= @menu == menu.number ? 'current' : ''%>"><%=menu.name%></a></li>
+            <% end %>
+  <% end%>
+        </ul>
+        <div style="float:right;color: #333333;font-size: 18px;padding: 12px 4px 0 0;">
+          <% if current_user %>
+            welcome <%= current_user ? current_user.email : '' %> !
+            <%= link_to '退出',logout_path  %> 
+      <% else %>
+            <%= link_to '登录',login_path %>  |
+            <%= link_to '注册',url_for(:controller=>:users,:action=>:new) %>  
+      <% end%>
+        <%#= link_to '中文',:controller=>controller.controller_name , :action=>controller.action_name , :locale=>"zh-CN" %>
+        <%#= link_to '英文',:controller=>controller.controller_name,:action=>controller.action_name,:locale=>"en"%>
+        </div>
+        
+      </div> <!-- end of templatemo_menu -->
+      
+    </div> <!-- end of templatemo_menu_wrapper -->    
+    
+    <div id="templatemo_header_wrapper">
+      
+      <div id="templatemo_header">
+        
+        <div id="site_title">
+          
+          <h1><a href="/">
+              <% if site.logo %>
+                        <%= link_to image_tag(site.logo),root_path %>
+              <%else%>
+                <div class="title"><%= site.name %></div>
+              <%end%>
+              <span></span>
+              
+          </a></h1>
+          
+        </div> <!-- end of site_title -->
+    
+      </div> <!-- end of templatemo_header -->
+      
+    </div> <!-- end of templatemo_header_wrapper -->
+    
+    <div id="templatemo_slider_wrapper">
+      
+      <div id="templatemo_slider">
+        
+        <div id="latest_product_slider">
+          
+          <div id="SlideItMoo_outer">
+            <div id="SlideItMoo_inner" class="anyClass">
+              <ul>
+                <li><img src="/assets/templatemo_product_01.png" alt="" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_02.png" alt="" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_03.png" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_04.png" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_05.png" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_06.png" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_07.png" width="100" height="100" ></li>
+                <li><img src="/assets/templatemo_product_08.png" width="100" height="100" ></li>
+              </ul>
+            </div>
+            <button class="SlideItMoo_forward"></button>
+            <button class="SlideItMoo_back"></button>
+          </div>
+          
+        </div> <!-- end of latest_product_slider -->
+    
+      </div> <!-- end of templatemo_slider -->
+      
+    </div> <!-- end of templatemo_slider_wrapper -->
+    
+    <div id="templatemo_content_wrapper">
+      <!-- end of templatemo_slider -->
+      <div id="templatemo_content_all">
+        <%= yield %>
+      </div> <!-- end of templatemo_content -->
+
+      <div class="cleaner"></div>
+      
+    </div> <!-- end of templatemo_content_wrapper -->
+    <div id="templatemo_content_wrapper_bottom"></div>
+    
+    <div id="templatemo_footer">
+      
+      <ul class="footer_menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li class="last_menu"><a href="#">Contact</a></li>
+      </ul>
+      
+      Copyright © 2048 <a href="#">Your Company Name</a> | 
+    <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></div> 
+    <!-- end of footer -->
+    
+  </body>
+</html>

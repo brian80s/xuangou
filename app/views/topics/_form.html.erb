@@ -1,0 +1,61 @@
+<%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+      <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br />
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :latlng %><br />
+    <%= f.text_field :latlng %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_id %><br />
+    <%= f.number_field :photo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comments_count %><br />
+    <%= f.number_field :comments_count %>
+  </div>
+  <div class="field">
+    <%= f.label :flags_count %><br />
+    <%= f.number_field :flags_count %>
+  </div>
+  <div class="field">
+    <%= f.label :cheers_count %><br />
+    <%= f.number_field :flags_count %>
+  </div>
+  <div class="field">
+    <%= f.label :cached_tag_list %><br />
+    <%= f.text_field :cached_tag_list %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

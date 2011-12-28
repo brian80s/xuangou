@@ -1,0 +1,102 @@
+/* 
+Document   : edit_tabs
+Created on : 2007-12-26, 11:44:32
+Author     : yj
+Description:
+Purpose of the stylesheet follows.
+include 'edit_tabs.js'
+include 'edit_tabs.css'
+*/
+
+/*-------------------------------------------------
+EDIT TABS
+-------------------------------------------------*/
+div#titlebar {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+div#titlebar {
+    background-color: #ffffff;
+    color: #000000;
+    padding-top: 0.2em;
+    clear: both;
+    margin-left: 3px;
+}
+div {
+    font-family: Arial, sans-serif;
+}
+#volumebartable {
+    width: 100%;
+}
+table {
+    border-style: none;
+    margin: 0;
+}
+#volumebartable td {
+    padding-top: 9px;
+}
+td.volumetabspace {
+    padding-right: 4px;
+}
+td.volumetabspace {
+    border-bottom: 1px solid #aabbef;
+}
+td {
+    font-family: Arial, sans-serif;
+}
+td.volumetab {
+    vertical-align: bottom;
+}
+td.volumetab.current_edit_tab a {
+    font-weight: bold;
+    background-color: #dde5ff;
+    border-bottom: 0px;
+    border-bottom: 1px solid #dde5ff;
+}
+td.volumetab a {
+    display: block;
+    border: 1px solid #aabbef;
+    font-family: Arial;
+    font-size: 83%;
+    font-weight: normal;
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 1px solid #aabbef;
+    height: 1%;
+}
+a {
+    color: #0000cc;
+    text-decoration: underline;
+}
+td.volumetitle {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 8px;
+}
+td.volumetitle {
+    border-bottom: 1px solid #aabbef;
+}
+td.volumetitle .titlewrap {
+    height: 1.5em;
+    overflow: hidden;
+    white-space: normal;
+}
+h2.title {
+    font-size: 125%;
+    font-weight: bold;
+    display: inline;
+    margin-left: 2px;
+}
+.addmd {
+    font-size: 83%;
+    color: #777777;
+    margin-left: 2px;
+}
+span {
+    font-family: Arial, sans-serif;
+}
+

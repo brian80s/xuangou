@@ -1,0 +1,33 @@
+<%= form_for(@cheer) do |f| %>
+  <% if @cheer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cheer.errors.count, "error") %> prohibited this cheer from being saved:</h2>
+
+      <ul>
+      <% @cheer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :resource_id %><br />
+    <%= f.number_field :resource_id %>
+  </div>
+  <div class="field">
+    <%= f.label :resource_type %><br />
+    <%= f.text_field :resource_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

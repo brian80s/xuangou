@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN"       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">    
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <title></title>      
+      <%= stylesheet_link_tag 'edit_tabs'%>	
+      <%= javascript_include_tag  "prototype","edit_tabs" %>
+   </head>
+
+ <body>
+﻿<h1>tab_control_for/link_to_tab/tab_page_for 的用法 </h1>
+
+
+<% tab_control_for do %>
+  <%= link_to_tab 'abc1',:current=>true %>
+  <%= link_to_tab 'abc2'%>
+<%end%>
+
+<% tab_page_for 'abc1',:current=>true do %>  
+  <p> &nbsp;&nbsp;</p>    
+    <div>abc1</div>
+<%end%>
+
+<% tab_page_for 'abc2' do %>  
+   <p> &nbsp;&nbsp;</p>
+  <div>abc2</div>
+<%end%>
+
+
+<% tab_control_for do %>
+  <%= link_to_tab 'abc11' %>                       
+    <%= link_to_tab 'abc12',:current=>true %>
+  <td class="volumetitle">
+  <div class="titlewrap">
+  <h2 class="title">Finger puppet</h2>
+  &nbsp;<span class="addmd">Hobart Ford</span></div>
+  </td>
+<% end %>
+
+<% tab_page_for 'abc11' do %>  
+  <p> &nbsp;&nbsp;</p>    
+    <div>abc1</div>
+<%end%>
+
+<% tab_page_for 'abc12',:current=>true do %>  
+   <p> &nbsp;&nbsp;</p>
+  <div>abc2</div>
+<%end%>
+
+
+</body>
+</html>
+

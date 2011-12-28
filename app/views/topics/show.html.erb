@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.title")%>:</b>
+  <%= @record.title %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.content")%>:</b>
+  <%= @record.content %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.price")%>:</b>
+  <%= @record.price %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.place")%>:</b>
+  <%= @record.place %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.latlng")%>:</b>
+  <%= @record.latlng %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.photo_id")%>:</b>
+  <%= @record.photo_id %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.comments_count")%>:</b>
+  <%= @record.comments_count %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.flags_count")%>:</b>
+  <%= @record.flags_count %>
+</p>
+<p>
+  <b><%= t("activerecord.attributes.topic.cheers_count")%>:</b>
+  <%= @record.cheers_count %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.cached_tag_list")%>:</b>
+  <%= @record.cached_tag_list %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.topic.user_id")%>:</b>
+  <%= @record.user_id %>
+</p>
+<div>
+  <%= render 'comments/form' %>
+</div>
+
+<%= link_to t("helpers.edit",:model=>""), edit_topic_path(@record) %> |
+<%= link_to t("helpers.back",:model=>""), topics_path %>

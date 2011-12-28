@@ -1,0 +1,16 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<% if current_user %>
+  <b>欢迎</b>
+  <%= link_to current_user.full_number,setting_account_path(current_user),{:target=>"content",:title=>'用户信息'} %> |
+  <%= link_to '首页',root_path %> | 
+  <a href="javascript:history.go(-1)">返回</a> |
+  <%= link_to '退出',logout_path,:id=>:logoutLink %> &nbsp;
+  <%= logout_after(site.time_out) if site.time_out %>
+<% else %>
+    <%= link_to '登录',login_path,:target=>"content" %>  
+<% end %>
+

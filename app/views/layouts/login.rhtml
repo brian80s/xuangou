@@ -1,0 +1,41 @@
+<%
+# 这是一个引用页面
+# 页面头和主菜单
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="<%= h site.keywords %>" name=keywords>
+    <meta content="<%= h site.description %>" name=description>
+    <%= stylesheet_link_tag 'main',:cache => true %>	
+    <%#= javascript_include_tag  "jquery","navbar" %>
+    <title><%=h site.title %></title>
+  </head>
+  
+  <body>
+    <%= render :partial => "main/head" %>
+    
+<div class="g-section g-tpl-120">
+  <div style="display: block;" class="g-unit g-first" id="gc-toc">
+    
+  </div>
+
+  <div style="position: relative;" class="g-unit" id="gc-pagecontent">    
+          
+    <div id="pagecontent" >
+      
+       <%#*<iframe width="100%" height=600 name="content" frameborder=0 src="/main/home"></iframe>%>
+       <%= yield %>
+    </div>    
+    
+  </div><!-- end gc-pagecontent -->
+</div><!-- end gooey wrapper -->
+
+    
+
+    <%= render :partial => "main/foot" %>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @cheer.user_id %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%= @cheer.user_name %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%= @cheer.resource_id %>
+</p>
+
+<p>
+  <b>Resource type:</b>
+  <%= @cheer.resource_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_cheer_path(@cheer) %> |
+<%= link_to 'Back', cheers_path %>

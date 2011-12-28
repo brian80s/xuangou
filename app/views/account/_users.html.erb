@@ -1,0 +1,5 @@
+﻿<P><select id="left" size="8" name="left" multiple="true" style="WIDTH: 250px; HEIGHT: 250px">
+    <% for user in users %>
+      <%="<option id='#{user.id}'>#{user.login} - (#{user.name})</option>"%>      
+    <% end %>
+</select></P>

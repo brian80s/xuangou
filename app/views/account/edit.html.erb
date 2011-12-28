@@ -1,0 +1,57 @@
+﻿<h1>编辑用户</h1>
+
+<%= error_messages_for :user %>
+
+<% form_for(:user,:url=> update_account_path(@user), :html => { :method => :put }) do |f| %>
+    <%= token_field %>
+  <p><b>编号</b><span class="star">*</span><br/>
+  <%= f.text_field :login %></p>
+
+  <p><b>名称</b><span class="star">*</span><br/>
+  <%= f.text_field :name %></p>
+
+  <p><b>身份证号码</b><br/>
+  
+      <%= f.text_field :id_card %></p>
+
+  <p><b>电子邮件</b><br/>
+  
+      <%= f.text_field :email %></p>
+
+  <p><b>所属机构</b><span class="star">*</span><br/>
+
+      <%= f.select :dept_id, get_dept_select_options_for() %>
+
+  <p><b>用户类型</b><span class="star">*</span><br/>
+  <% role=@user.roles.find(:first) %>
+  <% if role  %>
+    <%= select_tag "role", options_for_select(get_select_options_for_no_insert(:Role),role.id) %>
+  <% else %>
+      <%= select_tag "role", options_for_select(get_select_options_for(:Role),0) %>
+  <% end %>
+    <div id="reset-password">
+      <p>(<%= link_to_function(h('重设密码'), "toggleDisplay('password_fields','reset-password');") %>)  </p>
+    </div>
+
+    <div id="password_fields" style="display:none">
+      <p><%= link_to_function(h('取消'), "toggleDisplay('password_fields','reset-password');") %></p>
+      <p><b>密码</b><span class="star">*</span><br/>
+      <%= f.password_field :password,:id=>:password %></p>
+  
+      <p><b>确认密码</b><span class="star">*</span><br/>
+      <%= f.password_field :password_confirmation,:id=>:password_confirmation  %></p>
+    </div>
+
+    <p>
+      <b>说明</b><br />
+      <%= f.text_area :note ,:rows=>3 %>
+    </p>
+
+    <p>
+      <%= f.check_box :locked  %><b>锁定</b>
+    </p>
+
+    <p><%= submit_tag '确定' %></p>
+  <% end -%>
+
+  <%= link_to '返回',account_path %>

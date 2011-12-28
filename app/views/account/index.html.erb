@@ -1,0 +1,72 @@
+<h1>用户列表</h1>
+
+<% form_tag :action=>'filter' do %> 
+
+  <p>
+    <b>用户姓名：</b>
+    <%= text_field :param,:ol_name,{:style=>"width:215px;" } %><br />
+  </p>
+  <p>
+    <b>用户编号：</b>
+    <%= text_field :param,:ol_number,{:style=>"width:215px;" } %>
+  </p>
+
+  <p>
+ <%= submit_tag "确定" %>
+    
+  </p>
+<% end %>
+<div id="colcontrol">
+  <div class=bubble_bg><div class=rounded_ul><div class=rounded_ur><div class=rounded_ll><div class=rounded_lr><div class=bubble id=bub>
+              <!-- 表头工具条 -->
+              <div style="margin-bottom: 8px;">
+                <div style="float:left; margin-left:1em">
+                  <%= link_to '新增',:controller=>'account',:action=>'signup'%>
+                </div>
+                <div style="float:right; margin-left:2em">
+                  <b></b><b></b>
+                </div>
+                <div><%= will_paginate @users %></div>
+              </div> <!-- 表头工具条 -->
+
+ <!-- 表体 -->
+              <table cellspacing=0 cellpadding=2 border=0 class="results" id=resultstable width=99%>
+                <tbody> 
+                  <!-- 表体头 -->
+                  <tr id=headingrow>
+                    <th style="border-left: 0"> &nbsp; </th> 
+                    <th >编号</th> 
+                    <th>名称</th>
+                    <th>邮件地址</th>
+                    <th>登录时间</th>
+                    <th></th>
+                  </tr> <!-- 表体头 -->
+
+    <!-- 表体 -->
+     <% for user in @users %>
+                    <tr >
+                      <td style="padding:2px 2px 0 2px"><img src="/images/star_off.gif"  /></td>
+                      <td><%=h user.login %></td>  
+                      <td><%=h user.name %></td> 
+                      <td><%=h user.email %></td>
+                      <td><%= user.updated_at.to_date %></td>
+                      <td class="vt id" >
+                        <%= link_to '授权',admin_account_path(user) %>
+                        <%= link_to '编辑', edit_account_path(user) %>
+                        <%= link_to '删除', url_for(:action=>:destroy,:id=>user.id), :confirm => 'Are you sure?', :method => :delete %>  
+                      </td> 
+                    </tr>
+                  <% end %> <!-- 表体 -->
+                  
+                </tbody>
+              </table>
+              <!-- 表体 -->
+
+  <!-- 表尾工具条 -->
+              <div><%= will_paginate @users %></div>
+              <div style="margin-top: 1px; font-size: small"></div>
+              <!-- 表尾工具条 -->
+              
+  </div></div></div></div></div></div>
+</div>
+

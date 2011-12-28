@@ -1,0 +1,44 @@
+<div class="content_section">
+  
+  <h2>欢迎来到爱炫购</h2>
+  <p>赶紧注册一个账户，分享自己的心情，炫出自己的宝贝。</p>
+  
+</div>
+<div class="content_section">
+  
+  <h2>注册用户</h2>
+  <%#= error_messages_for :user %>
+  <%= form_for :user do |f| -%>
+  <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= token_field %>
+    <p><b>编号</b><span class="star">*</span><br/>
+    <%= f.text_field :login %></p>
+    <p><b>昵称</b><span class="star">*</span><br/>
+    <%= f.text_field :name %></p>
+    <p><b>电子邮件</b><br/> 
+    <%= f.text_field :email %></p>
+    <div id="password_fields">
+      <p><b>密码</b><span class="star">*</span><br/>
+      <%= f.password_field :password,:id=>:password %></p>  
+      <p><b>确认密码</b><span class="star">*</span><br/>
+      <%= f.password_field :password_confirmation,:id=>:password_confirmation  %></p>
+    </div>
+  
+    <p><%= submit_tag '确定' %></p>
+  
+  <% end -%>
+  
+  <%= link_to '返回', url_for(:controller=>:account,:action=>:login) %>
+            
+ 
+</div>

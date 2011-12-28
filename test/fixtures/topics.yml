@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  price: 9.99
+  place: MyString
+  latlng: MyString
+  photo_id: 1
+  comments_count: 1
+  flags: 1
+  cached_tag_list: MyString
+  user_id: 1
+
+two:
+  title: MyString
+  content: MyText
+  price: 9.99
+  place: MyString
+  latlng: MyString
+  photo_id: 1
+  comments_count: 1
+  flags: 1
+  cached_tag_list: MyString
+  user_id: 1

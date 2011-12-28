@@ -1,0 +1,47 @@
+<%#
+# 网页头.
+# 包括:
+#   app_menus   应用菜单
+#   logo        logo
+#   sub_menus   子菜单
+#   message     消息提示框
+#   mani_menus  主菜单
+#
+%>
+
+<table style="padding:0px; margin: 0px 0px -6px 0; width:100%" cellpadding=0 cellspacing=0>
+  <tr> 
+    <td style="width: 10%">
+      <div class="app_menus" >
+      </div> <!-- AppMenus -->
+
+       <% if site.logo %>
+          <%= link_to image_tag(site.logo),root_path %>
+       <%else%>
+        <div class="title"><%= site.name %></div>
+       <%end%>
+    </td> 
+    <td></td>    
+    <td >      
+      <div id="gaia"><!-- SubMenu -->
+        <%= render :partial => "main/sub_menu" %>
+      </div> <!-- SubMenu end -->    
+
+      <div id="message">
+        <% if flash[:notice] %>
+          <span id="notice"><%= flash[:notice] %></span>
+        <% elsif flash[:error] %>
+          <span id="error"><%= flash[:error] %></span>
+        <%end%>
+      </div>    <!-- notice end -->  
+    </td>
+  </tr>
+</table>
+
+<!--主菜单-->
+
+<%# main_menu_control_for do %>    
+  <% if @main_menus %>
+  <%= render :partial => "main/main_menu",:collection=>@main_menus   %>  
+  <% end %>
+<%#end%>

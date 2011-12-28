@@ -1,0 +1,5 @@
+<% unless @topics.blank %>
+  <% @topics.each do |topic|%>
+    <li role="topic_<%=topic.id%>"><%= raw topic.title %></li>
+  <% end%>
+<% end%>

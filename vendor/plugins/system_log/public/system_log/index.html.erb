@@ -1,0 +1,8 @@
+    <%=link_to '清空日志', :action=>:clear %>
+    
+    <%= will_paginate @logs %>
+    <% @logs.each do |log| %>
+        <p><%=raw log %></p><hr/>
+  <% end %>
+  
+  <%= will_paginate @logs %>  

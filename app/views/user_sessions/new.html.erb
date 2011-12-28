@@ -1,0 +1,26 @@
+<h1><%= t("login.login")%></h1>
+<%= form_for @user_session, :url => url_for(:action=>:create) do |f| %>
+      <% if @user_session.errors.any? %>
+    <div id="error_explanation">
+      <%#*pluralize(@user_session.errors.count, "error") prohibited this login from being saved:%>
+      <h2><%= t('errors.template.header',:count=>@user_session.errors.count,:model=>t('activerecord.models.user_session'))%></h2>
+      <p><%= t('errors.template.body')%></p>
+      <ul>
+      <% logger.info("-@user_session.errors-#{@user_session.errors.inspect}-------------")%>
+        <% @user_session.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=  t("login.email")  %><br />
+  <%= f.text_field :email %>
+  <br />
+  <br />
+  <%= t("login.password") %><br />
+  <%= f.password_field :password %><br />
+  <br />
+  <%= f.check_box :remember_me %><%= t("login.remember_me") %><br />
+  <br />
+  <%= f.submit t("login.login") %>
+<% end %>

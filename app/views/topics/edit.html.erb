@@ -1,0 +1,6 @@
+<h1><%= t("helpers.edit",:model=>t('activerecord.models.topic'))%></h1>
+
+<%= render 'form' %>
+
+<%= link_to t("helpers.show",:model=>""), @topic %> |
+<%= link_to t("helpers.back",:model=>""), topics_path %>
